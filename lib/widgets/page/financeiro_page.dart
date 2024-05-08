@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:web/widgets/appbar_widget.dart';
 
 class FinanceiroPage extends StatelessWidget {
