@@ -1,8 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:web/widgets/appbar_widget.dart';
-import 'package:web/widgets/button_widget.dart';
-import 'package:web/widgets/input_widget.dart';
 import 'package:web/widgets/page/financeiro_page.dart';
 
 class EklScaffold extends StatefulWidget {

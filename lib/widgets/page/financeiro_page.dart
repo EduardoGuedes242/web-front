@@ -1,13 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:web/db/helper/usuario_helper.dart';
 import 'package:web/widgets/appbar_widget.dart';
+import 'package:web/widgets/button_widget.dart';
+import 'package:web/widgets/input_widget.dart';
 
-class FinanceiroPage extends StatelessWidget {
+class FinanceiroPage extends StatefulWidget {
   const FinanceiroPage({
     super.key,
   });
+
+  @override
+  State<FinanceiroPage> createState() => _FinanceiroPageState();
+}
+
+class _FinanceiroPageState extends State<FinanceiroPage> {
+  final TextEditingController descricaoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,29 +33,31 @@ class FinanceiroPage extends StatelessWidget {
         ),
         child: ListView(
           children: [
-            EklAppBar(iconBack: false),
+            EklAppBar(iconBack: true),
             SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 120,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.amber,
-                  ),
-                ),
-                Container(
-                  height: 120,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.amber,
-                  ),
-                ),
-              ],
-            )
+            EklTextFormField(
+              title: 'Dercrição',
+              hint: 'Informe a descrição da movimentação',
+              controller: descricaoController,
+            ),
+            SizedBox(height: 10),
+            EklTextFormField(
+              title: 'Observação',
+              hint: 'Informe uma observação caso queira',
+              controller: descricaoController,
+            ),
+            EklButton(
+              titulo: 'Cadastrar',
+              funcao: () async {
+                int idInserido = await UsuarioHelper.inserirUsuario(
+                  nome: 'Bruno',
+                  login: 'bruno',
+                  senha: '123',
+                );
+
+                print('Categoria inserida com o ID: $idInserido');
+              },
+            ),
           ],
         ),
       ),

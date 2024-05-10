@@ -31,10 +31,13 @@ class EklAppBar extends StatelessWidget {
           if (iconBack)
             Row(
               children: [
-                Icon(
-                  Icons.arrow_back,
-                  size: 28,
-                  color: Colors.white,
+                IconButton(
+                  onPressed: Navigator.of(context).pop,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: 28,
+                    color: Colors.white,
+                  ),
                 ),
                 SizedBox(width: 8),
               ],
