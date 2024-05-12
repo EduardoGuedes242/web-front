@@ -37,8 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_svg: ^2.0.10+1
   awesome_bottom_bar: ^1.2.4
-  salomon_bottom_bar: ^3.3.2
-  sqflite: ^2.3.3+1
+  iconsax_plus: ^1.0.0
 
 dev_dependencies:
   flutter_test:

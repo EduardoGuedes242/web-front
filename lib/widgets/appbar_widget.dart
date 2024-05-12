@@ -4,15 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:web/common/dados.dart';
 
-class EklAppBar extends StatelessWidget {
-  const EklAppBar({super.key, required this.iconBack});
-  final bool iconBack;
+class EklAppBar extends StatefulWidget {
+  const EklAppBar({super.key});
+
+  @override
+  State<EklAppBar> createState() => _EklAppBarState();
+}
+
+class _EklAppBarState extends State<EklAppBar> {
+  bool exibirValor = true;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
-      height: 70,
+      height: 140,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -26,68 +32,109 @@ class EklAppBar extends StatelessWidget {
           ],
         ),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (iconBack)
-            Row(
-              children: [
-                IconButton(
-                  onPressed: Navigator.of(context).pop,
-                  icon: Icon(
-                    Icons.arrow_back,
-                    size: 28,
-                    color: Colors.white,
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Ola, $usuario',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    'Studio: $localStudio',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              SvgPicture.asset(
+                'assets/icons/notification-icon.svg',
+                height: 32,
+                color: Colors.white,
+              ),
+              SizedBox(width: 10),
+              Container(
+                height: 42,
+                width: 42,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(24),
+                  color: Colors.white,
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.person,
+                    size: 38,
+                    color: Colors.grey,
                   ),
                 ),
-                SizedBox(width: 8),
-              ],
-            )
-          else
-            SizedBox(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+              )
+            ],
+          ),
+          SizedBox(height: 14),
+          Text(
+            'Faturamento do Mês',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Row(
             children: [
               Text(
-                'Ola, $usuario',
+                'R\$',
                 style: TextStyle(
-                  fontSize: 16,
                   color: Colors.white,
+                  fontSize: 22,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
-                'Studio: $localStudio',
-                style: TextStyle(
-                  fontSize: 16,
+              SizedBox(width: 8),
+              if (exibirValor)
+                Text(
+                  faturamentoMEs.toStringAsFixed(2),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+              else
+                Text(
+                  '****',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              Spacer(),
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    exibirValor = !exibirValor;
+                  });
+                },
+                icon: Icon(
+                  Icons.remove_red_eye_outlined,
+                  size: 28,
                   color: Colors.white,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
-          Spacer(),
-          SvgPicture.asset(
-            'assets/icons/notification-icon.svg',
-            height: 32,
-            color: Colors.white,
-          ),
-          SizedBox(width: 10),
-          Container(
-            height: 42,
-            width: 42,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24),
-              color: Colors.white,
-            ),
-            child: Center(
-              child: Icon(
-                Icons.person,
-                size: 38,
-                color: Colors.grey,
-              ),
-            ),
-          )
         ],
       ),
     );
