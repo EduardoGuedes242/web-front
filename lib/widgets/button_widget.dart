@@ -15,8 +15,8 @@ class EklButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => funcao(),
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 40),
         height: 48,
-        width: MediaQuery.sizeOf(context).width * 0.85,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           gradient: const LinearGradient(
