@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:web/pages/agenda/telas/consulta_clientes.dart';
+import 'package:web/pages/agenda/telas/consulta_servicos.dart';
+import 'package:web/pages/agenda/telas/incluir_agendamento.dart';
+import 'package:web/widgets/item_menu.dart';
 
 class AgendaPage extends StatelessWidget {
   const AgendaPage({
@@ -8,9 +13,69 @@ class AgendaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: const Color(0XFFFCE5E6),
-      color: Color.fromARGB(255, 205, 34, 42),
+      color: const Color(0XFFFCE5E6),
       height: MediaQuery.sizeOf(context).height - 202,
+      child: GridView(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+        ),
+        children: [
+          EklItemMenu(
+            titulo: 'Incluir',
+            icone: const Icon(
+              IconsaxPlusBroken.calendar_add,
+              size: 48,
+              color: Colors.white,
+            ),
+            funcao: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const IncluirAgendamentoPage(),
+                ),
+              );
+            },
+          ),
+          EklItemMenu(
+            titulo: 'Consultar',
+            icone: const Icon(
+              IconsaxPlusBroken.search_normal_1,
+              size: 48,
+              color: Colors.white,
+            ),
+            funcao: () {},
+          ),
+          EklItemMenu(
+            titulo: 'Clientes',
+            icone: const Icon(
+              IconsaxPlusBroken.people,
+              size: 48,
+              color: Colors.white,
+            ),
+            funcao: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ConsultaClientesPage(),
+                ),
+              );
+            },
+          ),
+          EklItemMenu(
+            titulo: 'Serviços',
+            icone: const Icon(
+              IconsaxPlusBroken.bag_2,
+              size: 48,
+              color: Colors.white,
+            ),
+            funcao: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const ConsultaServicosPage(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

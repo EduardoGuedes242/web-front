@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:web/common/dados.dart';
 import 'package:web/widgets/button_widget.dart';

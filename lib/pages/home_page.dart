@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int telaSelecionada = 1;
+  int telaSelecionada = 3;
 
   List telas = [
     const AjustesPage(),
