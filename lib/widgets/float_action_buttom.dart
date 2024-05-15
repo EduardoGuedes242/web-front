@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 
 class EklFloatActionButton extends StatelessWidget {
-  EklFloatActionButton({super.key, required this.funcao});
+  const EklFloatActionButton({super.key, required this.funcao});
 
   final Function funcao;
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:web/pages/agenda/agenda_page.dart';
 import 'package:web/pages/ajustes/ajustes_page.dart';
 import 'package:web/pages/financeiro/financeiro_page.dart';
-import 'package:web/pages/inicio/inicio_page.dart';
 import 'package:web/pages/suporte/suporte_page.dart';
 import 'package:web/widgets/appbar_widget.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
@@ -21,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   List telas = [
     const AjustesPage(),
     const FinanceiroPage(),
-    const InicioPage(),
     const AgendaPage(),
     const SuportePage(),
   ];
@@ -58,10 +56,6 @@ const List<TabItem> items = [
   TabItem(
     icon: IconsaxPlusBold.dollar_square,
     title: 'Financeiro',
-  ),
-  TabItem(
-    icon: IconsaxPlusBold.home_2,
-    title: 'Inicio',
   ),
   TabItem(
     icon: IconsaxPlusBold.calendar,
