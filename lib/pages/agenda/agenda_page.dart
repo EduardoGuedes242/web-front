@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:web/pages/agenda/telas/consulta_agendamento.dart';
 import 'package:web/pages/agenda/telas/consulta_clientes.dart';
 import 'package:web/pages/agenda/telas/consulta_servicos.dart';
-import 'package:web/pages/agenda/telas/incluir_agendamento.dart';
 import 'package:web/widgets/item_menu.dart';
 
 class AgendaPage extends StatelessWidget {
@@ -21,7 +21,7 @@ class AgendaPage extends StatelessWidget {
         ),
         children: [
           EklItemMenu(
-            titulo: 'Incluir',
+            titulo: 'Agenda',
             icone: const Icon(
               IconsaxPlusBroken.calendar_add,
               size: 48,
@@ -30,15 +30,15 @@ class AgendaPage extends StatelessWidget {
             funcao: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const IncluirAgendamentoPage(),
+                  builder: (context) => const ConsultaAgendamentos(),
                 ),
               );
             },
           ),
           EklItemMenu(
-            titulo: 'Consultar',
+            titulo: 'Relatórios',
             icone: const Icon(
-              IconsaxPlusBroken.search_normal_1,
+              IconsaxPlusBroken.activity,
               size: 48,
               color: Colors.white,
             ),

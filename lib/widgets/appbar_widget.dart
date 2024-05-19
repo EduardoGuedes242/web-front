@@ -22,8 +22,8 @@ class _EklAppBarState extends State<EklAppBar> {
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
         ),
         gradient: const LinearGradient(
           colors: [
