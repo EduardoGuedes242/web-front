@@ -48,6 +48,10 @@ class _EklTextFormFieldState extends State<EklTextFormField> {
                   horizontal: 12,
                 ),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(221, 12, 0, 0),
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: widget.hint,
@@ -96,7 +100,7 @@ class _EklTextFormFieldMultLinesState extends State<EklTextFormFieldMultLines> {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 8),
-          Container(
+          SizedBox(
             height: 100,
             child: TextFormField(
               controller: widget.controller,
@@ -107,6 +111,10 @@ class _EklTextFormFieldMultLinesState extends State<EklTextFormFieldMultLines> {
                   horizontal: 12,
                 ),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(221, 12, 0, 0),
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: widget.hint,
