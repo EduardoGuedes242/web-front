@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:web/cadastroUsuario.dart';
 import 'package:web/widgets/input_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,6 +15,13 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController usuarioController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
   final TextEditingController cpfCnpjContreller = TextEditingController();
+  // bool _obscureText = true;
+
+  // void _toggleobscureText() {
+  //   setState(() {
+  //     _obscureText = !_obscureText;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -97,6 +105,11 @@ class _LoginPageState extends State<LoginPage> {
                   mouseCursor: WidgetStateMouseCursor.clickable,
                   onTap: () {
                     //Abrir tela de cadastro de usuarios...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CadastroUsuarios()),
+                    );
                   },
                   child: const Text(
                     'Dont have account ? Sing Up',
