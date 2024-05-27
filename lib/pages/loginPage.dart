@@ -58,6 +58,12 @@ class _LoginPageState extends State<LoginPage> {
                 title: 'Senha',
                 hint: 'Password',
                 controller: TextEditingController(),
+                obscureText: true,
+                optionShowPassword: true,
+                iconeDireita: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.visibility),
+                ),
               ),
               const SizedBox(height: 15),
               Container(
@@ -112,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                   child: const Text(
-                    'Dont have account ? Sing Up',
+                    'Don\'t have account ? Sing Up',
                     style: TextStyle(
                       color: Colors.black,
                     ),

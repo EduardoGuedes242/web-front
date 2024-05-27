@@ -2,14 +2,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class EklTextFormField extends StatefulWidget {
-  const EklTextFormField({
+  EklTextFormField({
     super.key,
     required this.title,
     required this.hint,
     required this.controller,
     this.iconeDireita,
     this.tamanho,
+    this.obscureText = false,
+    this.optionShowPassword = false,
   });
 
   final String title;
@@ -17,6 +20,8 @@ class EklTextFormField extends StatefulWidget {
   final TextEditingController controller;
   final IconButton? iconeDireita;
   final double? tamanho;
+  bool obscureText;
+  final bool optionShowPassword;
 
   @override
   State<EklTextFormField> createState() => _EklTextFormFieldState();
@@ -41,8 +46,20 @@ class _EklTextFormFieldState extends State<EklTextFormField> {
             height: 50,
             child: TextFormField(
               controller: widget.controller,
+              obscureText: widget.obscureText,
               decoration: InputDecoration(
-                suffixIcon: widget.iconeDireita,
+                suffixIcon: widget.optionShowPassword
+                    ? IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.obscureText = !widget.obscureText;
+                          });
+                        },
+                        icon: widget.obscureText
+                            ? const Icon(Icons.remove_red_eye)
+                            : const Icon(Icons.visibility_off),
+                      )
+                    : null,
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 0,
                   horizontal: 12,
