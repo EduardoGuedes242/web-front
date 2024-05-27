@@ -38,6 +38,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   awesome_bottom_bar: ^1.2.4
   iconsax_plus: ^1.0.0
+  http_multi_server: ^3.2.1
 
 dev_dependencies:
   flutter_test:

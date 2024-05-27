@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:web/repositories/service_repository.dart';
 import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
@@ -61,7 +62,14 @@ class _CadastrarServicosPageState extends State<CadastrarServicosPage> {
             Spacer(),
             EklButton(
               titulo: 'Cadastrar',
-              funcao: () {},
+              funcao: () {
+                ServiceRepository().addService(
+                  name: 'Bruno',
+                  price: 100.0,
+                  time: '01:00:00',
+                  companyId: 1,
+                );
+              },
             ),
             SizedBox(height: 30),
           ],
