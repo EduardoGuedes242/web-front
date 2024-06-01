@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:web/common/dados.dart';
+import 'package:web/repositories/expenses_repository.dart';
 import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
@@ -66,7 +67,15 @@ class _RegistrarSaidaPageState extends State<RegistrarSaidaPage> {
             Spacer(),
             EklButton(
               titulo: 'Registrar',
-              funcao: () {},
+              funcao: () {
+                ExpensesRepository().addExpense(
+                  companyId: 1,
+                  amount: 200,
+                  date: "05.01.2024", 
+                  category: "Teste Flutter", 
+                  description: "Flutter" 
+                );
+              },
             ),
             Spacer(),
           ],
