@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
 class CadastroUsuarios extends StatefulWidget {
@@ -18,12 +19,15 @@ class _CadastroUsuariosState extends State<CadastroUsuarios> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            color: Colors.deepPurpleAccent,
-            height: MediaQuery.sizeOf(context).height *
-                0.4, //300, // Defina a altura da imagem
+            color: const Color.fromRGBO(124, 77, 255, 1),
+            height: 245, //MediaQuery.sizeOf(context).height *
+            //0.4, //300, // Defina a altura da imagem
             width: double.infinity,
             child: Image.asset(
               'assets/images/cadUsuImg.png',
@@ -43,18 +47,19 @@ class _CadastroUsuariosState extends State<CadastroUsuarios> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
                   children: [
                     EklTextFormField(
                       title: 'Nome',
                       hint: 'Digite seu nome  ',
                       controller: cadNomeController,
+                      iconeEsquerda: Icon(Icons.person),
                     ),
                     EklTextFormField(
                       title: 'Email',
                       hint: 'Digite seu email',
                       controller: cadUsuarioController,
+                      iconeEsquerda: Icon(Icons.email_outlined),
                     ),
                     EklTextFormField(
                       title: 'Senha',
@@ -78,52 +83,16 @@ class _CadastroUsuariosState extends State<CadastroUsuarios> {
                         icon: Icon(Icons.visibility),
                       ),
                     ),
-                    const SizedBox(height: 2),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all<Color>(
-                              const Color.fromARGB(
-                                  255, 98, 41, 238)), // Cor de fundo do botão
-                          iconColor: WidgetStateProperty.all<Color>(
-                              const Color.fromARGB(255, 98, 41, 238)),
-                          shape: WidgetStatePropertyAll(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                          )),
-                      onPressed: () {},
-                      child: const Text(
-                        'Cadastrar',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                    const SizedBox(height: 5),
+                    EklButton2(
+                      titulo: 'Cadastrar',
+                      funcao: () {},
+                    )
                   ],
                 ),
               ),
             ),
           ),
-          // ElevatedButton(
-          //   style: ButtonStyle(
-          //       backgroundColor: WidgetStateProperty.all<Color>(
-          //           const Color.fromARGB(
-          //               255, 98, 41, 238)), // Cor de fundo do botão
-          //       iconColor: WidgetStateProperty.all<Color>(
-          //           const Color.fromARGB(255, 98, 41, 238)),
-          //       shape: WidgetStatePropertyAll(
-          //         RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(15.0),
-          //         ),
-          //       )),
-          //   onPressed: () {},
-          //   child: const Text(
-          //     'Cadastrar',
-          //     style: TextStyle(
-          //       color: Colors.white,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

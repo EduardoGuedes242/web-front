@@ -1,7 +1,9 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:web/cadastroUsuario.dart';
+import 'package:web/pages/access/cadastroUsuario.dart';
+import 'package:web/pages/access/esqueceuSenha.dart';
+import 'package:web/pages/home_page.dart';
+import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,13 +17,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController usuarioController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
   final TextEditingController cpfCnpjContreller = TextEditingController();
-  // bool _obscureText = true;
-
-  // void _toggleobscureText() {
-  //   setState(() {
-  //     _obscureText = !_obscureText;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +45,15 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               EklTextFormField(
                 title: 'Login',
-                hint: 'Email or Phone Number',
-                controller: TextEditingController(),
+                hint: 'Email ou Telefone',
+                controller: usuarioController,
+                iconeEsquerda: Icon(Icons.person),
               ),
               const SizedBox(height: 20),
               EklTextFormField(
                 title: 'Senha',
-                hint: 'Password',
-                controller: TextEditingController(),
+                hint: 'Digite sua senha',
+                controller: senhaController,
                 obscureText: true,
                 optionShowPassword: true,
                 iconeDireita: IconButton(
@@ -71,9 +67,13 @@ class _LoginPageState extends State<LoginPage> {
                   mouseCursor: WidgetStateMouseCursor.clickable,
                   onTap: () {
                     //Abrir a tela de cadastrar nova senha...
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NovaSenha()),
+                    );
                   },
                   child: const Text(
-                    'Forgot Your Password ?',
+                    'Esqueceu a senha ?',
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -81,29 +81,16 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 30),
-              SizedBox(
-                height: 48,
-                width: MediaQuery.of(context).size.width * 0.45,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                          const Color.fromARGB(
-                              255, 98, 41, 238)), // Cor de fundo do botão
-                      iconColor: WidgetStateProperty.all<Color>(
-                          const Color.fromARGB(255, 98, 41, 238)),
-                      shape: WidgetStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                      )),
-                  onPressed: () {},
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
+              EklButton2(
+                titulo: 'Login',
+                funcao: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
               const SizedBox(height: 15),
               Container(
@@ -118,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     );
                   },
                   child: const Text(
-                    'Don\'t have account ? Sing Up',
+                    'Não tem conta ? Clique aqui',
                     style: TextStyle(
                       color: Colors.black,
                     ),

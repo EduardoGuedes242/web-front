@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:web/pages/home_page.dart';
-import 'package:web/pages/loginPage.dart';
+//import 'package:web/pages/home_page.dart';
+import 'package:web/pages/access/loginPage.dart';
 
 void main() async {
   runApp(const MyApp());

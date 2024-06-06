@@ -10,6 +10,7 @@ class EklTextFormField extends StatefulWidget {
     required this.hint,
     required this.controller,
     this.iconeDireita,
+    this.iconeEsquerda,
     this.tamanho,
     this.obscureText = false,
     this.optionShowPassword = false,
@@ -19,6 +20,7 @@ class EklTextFormField extends StatefulWidget {
   final String hint;
   final TextEditingController controller;
   final IconButton? iconeDireita;
+  final Icon? iconeEsquerda;
   final double? tamanho;
   bool obscureText;
   final bool optionShowPassword;
@@ -48,6 +50,7 @@ class _EklTextFormFieldState extends State<EklTextFormField> {
               controller: widget.controller,
               obscureText: widget.obscureText,
               decoration: InputDecoration(
+                prefixIcon: widget.iconeEsquerda,
                 suffixIcon: widget.optionShowPassword
                     ? IconButton(
                         onPressed: () {
