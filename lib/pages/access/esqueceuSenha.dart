@@ -16,6 +16,14 @@ class _NovaSenhaState extends State<NovaSenha> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop([]);
+          },
+          icon: Icon(Icons.arrow_back_outlined),
+        ),
+      ),
       backgroundColor: Colors.deepPurpleAccent,
       body: Column(
         children: [
@@ -59,7 +67,7 @@ class _NovaSenhaState extends State<NovaSenha> {
                     ),
                     Spacer(),
                     EklButton2(titulo: 'Next', funcao: () {}),
-                    SizedBox(height: 25)
+                    SizedBox(height: 45)
                   ],
                 ),
               ),

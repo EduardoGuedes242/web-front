@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:web/pages/access/cadastroUsuario.dart';
 import 'package:web/pages/access/esqueceuSenha.dart';
 import 'package:web/pages/home_page.dart';
+import 'package:web/repositories/login_repository.dart';
 import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
@@ -16,7 +17,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController usuarioController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
-  final TextEditingController cpfCnpjContreller = TextEditingController();
+  //final TextEditingController cpfCnpjContreller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +85,11 @@ class _LoginPageState extends State<LoginPage> {
               EklButton2(
                 titulo: 'Login',
                 funcao: () {
+                  LoginRepository().authUser(
+                    email: usuarioController.text,
+                    password: senhaController.text,
+                  );
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

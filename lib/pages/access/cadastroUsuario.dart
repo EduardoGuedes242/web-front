@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web/repositories/cadUsers_repository.dart';
 import 'package:web/widgets/button_widget.dart';
 import 'package:web/widgets/input_widget.dart';
 
@@ -10,11 +11,10 @@ class CadastroUsuarios extends StatefulWidget {
 }
 
 class _CadastroUsuariosState extends State<CadastroUsuarios> {
-  final TextEditingController cadNomeController = TextEditingController();
-  final TextEditingController cadUsuarioController = TextEditingController();
-  final TextEditingController cadSenhaController = TextEditingController();
-  final TextEditingController cadSenhaConfirmaController =
-      TextEditingController();
+  final TextEditingController cadTenantController = TextEditingController();
+  final TextEditingController cadNameController = TextEditingController();
+  final TextEditingController cadEmailController = TextEditingController();
+  final TextEditingController cadPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,32 +50,26 @@ class _CadastroUsuariosState extends State<CadastroUsuarios> {
                 child: ListView(
                   children: [
                     EklTextFormField(
+                      title: 'Id',
+                      hint: 'Digite o inquilino',
+                      controller: cadTenantController,
+                    ),
+                    EklTextFormField(
                       title: 'Nome',
                       hint: 'Digite seu nome  ',
-                      controller: cadNomeController,
+                      controller: cadNameController,
                       iconeEsquerda: Icon(Icons.person),
                     ),
                     EklTextFormField(
                       title: 'Email',
                       hint: 'Digite seu email',
-                      controller: cadUsuarioController,
+                      controller: cadEmailController,
                       iconeEsquerda: Icon(Icons.email_outlined),
                     ),
                     EklTextFormField(
                       title: 'Senha',
                       hint: 'Digite uma senha',
-                      controller: cadSenhaController,
-                      obscureText: true,
-                      optionShowPassword: true,
-                      iconeDireita: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.visibility),
-                      ),
-                    ),
-                    EklTextFormField(
-                      title: 'Confirme a Senha',
-                      hint: 'Digite a senha novamente',
-                      controller: cadSenhaConfirmaController,
+                      controller: cadPasswordController,
                       obscureText: true,
                       optionShowPassword: true,
                       iconeDireita: IconButton(
@@ -86,7 +80,13 @@ class _CadastroUsuariosState extends State<CadastroUsuarios> {
                     const SizedBox(height: 5),
                     EklButton2(
                       titulo: 'Cadastrar',
-                      funcao: () {},
+                      funcao: () {
+                        CadUsersRepository().cadUsers(
+                            tenantId: cadTenantController.text,
+                            name: cadNameController.text,
+                            email: cadEmailController.text,
+                            password: cadPasswordController.text);
+                      },
                     )
                   ],
                 ),
