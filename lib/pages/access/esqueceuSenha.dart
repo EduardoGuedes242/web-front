@@ -12,6 +12,7 @@ class NovaSenha extends StatefulWidget {
 class _NovaSenhaState extends State<NovaSenha> {
   TextEditingController emailRecuperController = TextEditingController();
   TextEditingController senhaRecuperController = TextEditingController();
+  TextEditingController codigoVerificController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +51,11 @@ class _NovaSenhaState extends State<NovaSenha> {
                       hint: 'Digite seu email',
                       controller: emailRecuperController,
                       iconeEsquerda: Icon(Icons.email_outlined),
+                    ),
+                    EklTextFormField(
+                      title: '',
+                      hint: 'Digite o código',
+                      controller: codigoVerificController,
                     ),
                     Spacer(),
                     EklButton2(titulo: 'Next', funcao: () {}),
