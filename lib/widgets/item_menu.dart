@@ -68,7 +68,7 @@ class EklMiniItemMenu extends StatelessWidget {
         ),
         Text(
           titulo,
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ],
     );

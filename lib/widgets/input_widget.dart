@@ -2,21 +2,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class EklTextFormField extends StatefulWidget {
-  const EklTextFormField({
+  EklTextFormField({
     super.key,
     required this.title,
     required this.hint,
     required this.controller,
     this.iconeDireita,
+    this.iconeEsquerda,
     this.tamanho,
+    this.obscureText = false,
+    this.optionShowPassword = false,
   });
 
   final String title;
   final String hint;
   final TextEditingController controller;
   final IconButton? iconeDireita;
+  final Icon? iconeEsquerda;
   final double? tamanho;
+  bool obscureText;
+  final bool optionShowPassword;
 
   @override
   State<EklTextFormField> createState() => _EklTextFormFieldState();
@@ -41,13 +48,30 @@ class _EklTextFormFieldState extends State<EklTextFormField> {
             height: 50,
             child: TextFormField(
               controller: widget.controller,
+              obscureText: widget.obscureText,
               decoration: InputDecoration(
-                suffixIcon: widget.iconeDireita,
+                prefixIcon: widget.iconeEsquerda,
+                suffixIcon: widget.optionShowPassword
+                    ? IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.obscureText = !widget.obscureText;
+                          });
+                        },
+                        icon: widget.obscureText
+                            ? const Icon(Icons.remove_red_eye)
+                            : const Icon(Icons.visibility_off),
+                      )
+                    : null,
                 contentPadding: EdgeInsets.symmetric(
                   vertical: 0,
                   horizontal: 12,
                 ),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(221, 12, 0, 0),
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: widget.hint,
@@ -96,7 +120,7 @@ class _EklTextFormFieldMultLinesState extends State<EklTextFormFieldMultLines> {
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 8),
-          Container(
+          SizedBox(
             height: 100,
             child: TextFormField(
               controller: widget.controller,
@@ -107,6 +131,10 @@ class _EklTextFormFieldMultLinesState extends State<EklTextFormFieldMultLines> {
                   horizontal: 12,
                 ),
                 border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: const Color.fromARGB(221, 12, 0, 0),
+                    width: 2,
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 hintText: widget.hint,

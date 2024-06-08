@@ -42,3 +42,44 @@ class EklButton extends StatelessWidget {
     );
   }
 }
+
+class EklButton2 extends StatelessWidget {
+  const EklButton2({
+    super.key,
+    required this.titulo,
+    required this.funcao,
+  });
+
+  final String titulo;
+  final Function funcao;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 48,
+      width: MediaQuery.of(context).size.width * 0.45,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all<Color>(
+                const Color.fromARGB(
+                    255, 98, 41, 238)), // Cor de fundo do botão
+            iconColor: WidgetStateProperty.all<Color>(
+                const Color.fromARGB(255, 98, 41, 238)),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            )),
+        onPressed: () {
+          funcao();
+        },
+        child: Text(
+          titulo,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
