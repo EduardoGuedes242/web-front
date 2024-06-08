@@ -5,6 +5,9 @@ String localStudio = 'Jardim Camburi';
 double faturamentoMEs = 7451;
 int telaAtual = 1;
 
+String baseUrl = 'http://localhost:3000/v1';
+String chaveToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo3LCJ0ZW5hbnRfaWQiOjEsImlhdCI6MTcxNzIyMjk4MiwiZXhwIjoxNzE3MjI2NTgyfQ.EO-v5qja3oHsO-msqSogKqMGZDkpNSYikKFsynjG-_I';
+
 const List<DropdownMenuEntry> formasPagamento = [
   DropdownMenuEntry(value: 0, label: 'Cartao de Credito'),
   DropdownMenuEntry(value: 1, label: 'Pix'),
