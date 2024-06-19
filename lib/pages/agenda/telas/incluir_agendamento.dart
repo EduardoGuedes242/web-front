@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:web/pages/agenda/telas/cadastro_clientes.dart';
 import 'package:web/pages/agenda/telas/cadastro_servicos.dart';
@@ -15,6 +17,10 @@ class IncluirAgendamentoPage extends StatefulWidget {
 
 class _IncluirAgendamentoPageState extends State<IncluirAgendamentoPage> {
   TextEditingController controllerCliente = TextEditingController();
+  TextEditingController controllerServico = TextEditingController();
+  TextEditingController controllerData = TextEditingController();
+  TextEditingController controllerHora = TextEditingController();
+  TextEditingController controllerObservacao = TextEditingController();
   bool flPendente = false;
   bool flConcluido = false;
 
@@ -52,7 +58,7 @@ class _IncluirAgendamentoPageState extends State<IncluirAgendamentoPage> {
             EklTextFormField(
               title: 'Serviço',
               hint: 'Informe o serviço',
-              controller: controllerCliente,
+              controller: controllerServico,
               iconeDireita: IconButton(
                 onPressed: () {
                   Navigator.of(context).push(
@@ -76,7 +82,7 @@ class _IncluirAgendamentoPageState extends State<IncluirAgendamentoPage> {
                   title: 'Data',
                   hint: '01/02/2024',
                   tamanho: MediaQuery.sizeOf(context).width * 0.45,
-                  controller: controllerCliente,
+                  controller: controllerData,
                   iconeDireita: IconButton(
                     onPressed: () {},
                     icon: const Icon(
@@ -88,7 +94,7 @@ class _IncluirAgendamentoPageState extends State<IncluirAgendamentoPage> {
                   title: 'Hora',
                   hint: '09:00',
                   tamanho: MediaQuery.sizeOf(context).width * 0.35,
-                  controller: controllerCliente,
+                  controller: controllerHora,
                   iconeDireita: IconButton(
                     onPressed: () {},
                     icon: const Icon(
@@ -102,7 +108,7 @@ class _IncluirAgendamentoPageState extends State<IncluirAgendamentoPage> {
             EklTextFormFieldMultLines(
               title: 'Observação',
               hint: 'Cliente chegou atrasada',
-              controller: controllerCliente,
+              controller: controllerObservacao,
             ),
             const SizedBox(height: 16),
             EklRadio(
