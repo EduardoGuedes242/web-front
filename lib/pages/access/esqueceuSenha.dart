@@ -62,7 +62,7 @@ class _NovaSenhaState extends State<NovaSenha> {
                     ),
                     EklTextFormField(
                       title: '',
-                      hint: 'Digite o código',
+                      hint: 'Digite o código recebido nos email',
                       controller: codigoVerificController,
                     ),
                     Spacer(),

@@ -110,7 +110,7 @@ class _EklTextFormFieldMultLinesState extends State<EklTextFormFieldMultLines> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
-      height: 134,
+      height: 135,
       width: widget.tamanho ?? MediaQuery.of(context).size.width * 0.85,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
